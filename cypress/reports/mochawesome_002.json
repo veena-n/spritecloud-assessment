@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-14T08:01:02.349Z",
+    "end": "2024-12-14T08:01:18.174Z",
+    "duration": 15825,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "29bf082b-5941-416a-8634-4b7972a7b194",
+      "title": "",
+      "fullFile": "cypress\\e2e\\saucelogin.cy.js",
+      "file": "cypress\\e2e\\saucelogin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0bc041ce-ca4a-414f-b07e-048866a0b6d7",
+          "title": "validate the login page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the login page of sauce demo application",
+              "fullTitle": "validate the login page Verify the login page of sauce demo application",
+              "timedOut": null,
+              "duration": 2333,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const appName = _users.users.logotitle;\ncy.get('.login_logo').should('have.css', 'color', _color.colors.Black).and('have.text', appName.title);\ncy.get('[data-test=\"username\"]').should('have.attr', 'placeholder', 'Username');\ncy.get('[data-test=\"password\"').should('have.attr', 'placeholder', 'Password');\ncy.get('[data-test=\"login-button\"]').should('have.css', 'color', _color.colors.Black).and('have.css', 'background-color', _color.colors.Green);\ncy.screenshot();",
+              "err": {},
+              "uuid": "76b0d773-6e5c-4176-9d83-8fecccce7932",
+              "parentUUID": "0bc041ce-ca4a-414f-b07e-048866a0b6d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate user can successfully login to the application using validuser",
+              "fullTitle": "validate the login page Validate user can successfully login to the application using validuser",
+              "timedOut": null,
+              "duration": 4424,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const validUser = _users.users.standard_user;\ncy.get('[data-test=\"username\"]').type(validUser.username);\ncy.get('[data-test=\"password\"]').type(validUser.password);\ncy.get('[data-test=\"login-button\"]').click();\ncy.url().should('include', validUser.expectedUrl);\ncy.get('.title').should('have.text', validUser.expectedTitle);\ncy.screenshot();",
+              "err": {},
+              "uuid": "e561ccb6-3a0e-45dd-bc9e-d7fb69f934d6",
+              "parentUUID": "0bc041ce-ca4a-414f-b07e-048866a0b6d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate user can successfully login to the application using invaliduser",
+              "fullTitle": "validate the login page Validate user can successfully login to the application using invaliduser",
+              "timedOut": null,
+              "duration": 3396,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const invalidUser = _users.users.invalid_user;\ncy.get('[data-test=\"username\"]').type(invalidUser.username);\ncy.get('[data-test=\"password\"]').type(invalidUser.password);\ncy.get('[data-test=\"login-button\"]').click();\ncy.url().should('include', invalidUser.expectedUrl);\ncy.get('.error-message-container').should('be.visible').and('contain.text', invalidUser.expectedTitle).and('have.css', 'background-color', _color.colors.Red);\ncy.screenshot();",
+              "err": {},
+              "uuid": "2fcbf4e6-0b06-490b-8bd7-b3dba40c03d7",
+              "parentUUID": "0bc041ce-ca4a-414f-b07e-048866a0b6d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate the error message for locked user",
+              "fullTitle": "validate the login page Validate the error message for locked user",
+              "timedOut": null,
+              "duration": 2369,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const lockedOutUser = _users.users.locked_out_user;\ncy.get('[data-test=\"username\"]').type(lockedOutUser.username);\ncy.get('[data-test=\"password\"]').type(lockedOutUser.password);\ncy.get('[data-test=\"login-button\"]').click();\ncy.url().should('include', lockedOutUser.expectedUrl);\ncy.get('.error-message-container').should('be.visible').and('contain.text', lockedOutUser.expectedTitle).and('have.css', 'background-color', _color.colors.Red);\ncy.screenshot();",
+              "err": {},
+              "uuid": "972302a0-f5f3-49a8-bb3e-86e9c06f44c7",
+              "parentUUID": "0bc041ce-ca4a-414f-b07e-048866a0b6d7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify that user can remove the error message",
+              "fullTitle": "validate the login page Verify that user can remove the error message",
+              "timedOut": null,
+              "duration": 2257,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const errMsg = _users.users.password_error;\ncy.get('[data-test=\"username\"]').type(errMsg.username);\ncy.get('[data-test=\"login-button\"]').click();\ncy.url().should('include', errMsg.expectedUrl);\ncy.get('[data-test=\"error\"]').should('be.visible').and('contain.text', errMsg.expectedTitle).and('have.css', 'color', _color.colors.White);\ncy.screenshot();\ncy.get('.error-button').click();",
+              "err": {},
+              "uuid": "3907955b-d8db-43f1-be48-8fbdcd647515",
+              "parentUUID": "0bc041ce-ca4a-414f-b07e-048866a0b6d7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "76b0d773-6e5c-4176-9d83-8fecccce7932",
+            "e561ccb6-3a0e-45dd-bc9e-d7fb69f934d6",
+            "2fcbf4e6-0b06-490b-8bd7-b3dba40c03d7",
+            "972302a0-f5f3-49a8-bb3e-86e9c06f44c7",
+            "3907955b-d8db-43f1-be48-8fbdcd647515"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14779,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

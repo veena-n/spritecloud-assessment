@@ -20,6 +20,7 @@ const appName = users.logotitle;
     cy.get('[data-test="login-button"]')
     .should('have.css', 'color', colors.Black)
     .and('have.css', 'background-color', colors.Green)
+    cy.screenshot()
 })
 
 it('Validate user can successfully login to the application using validuser', () => {
@@ -31,6 +32,7 @@ it('Validate user can successfully login to the application using validuser', ()
 
     cy.url().should('include', validUser.expectedUrl)
     cy.get('.title').should('have.text', validUser.expectedTitle)
+    cy.screenshot()
 
 })
 
@@ -47,6 +49,7 @@ it('Validate user can successfully login to the application using invaliduser', 
     cy.get('.error-message-container').should('be.visible')
     .and('contain.text', invalidUser.expectedTitle)
     .and('have.css', 'background-color',colors.Red)
+    cy.screenshot()
 
 })
 
@@ -61,6 +64,7 @@ it('Validate the error message for locked user', () =>{
     cy.get('.error-message-container').should('be.visible')
       .and('contain.text', lockedOutUser.expectedTitle)
       .and('have.css', 'background-color',colors.Red)
+      cy.screenshot()
 
   })
 
@@ -75,6 +79,7 @@ it('Validate the error message for locked user', () =>{
     cy.get('[data-test="error"]').should('be.visible')
       .and('contain.text', errMsg.expectedTitle)
       .and('have.css', 'color',colors.White)
+    cy.screenshot()
 
     cy.get('.error-button').click()
     

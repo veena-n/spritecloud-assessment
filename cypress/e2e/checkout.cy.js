@@ -45,6 +45,7 @@ cy.get('[data-test="pony-express"]').should('be.visible')
 .and('have.css', 'color', colors.TGreen)
 cy.get('[data-test="complete-header"]').should('be.visible')
 .and('have.css', 'color', colors.Black).and('have.text', 'Thank you for your order!')
+cy.screenshot()
  
   
  

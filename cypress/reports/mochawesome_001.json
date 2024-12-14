@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-14T08:00:47.939Z",
+    "end": "2024-12-14T08:00:56.500Z",
+    "duration": 8561,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9ff0b42e-efb1-4ff2-bde8-a65c1a06407f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\checkout.cy.js",
+      "file": "cypress\\e2e\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ecc93982-a018-46c4-9b1c-41a513680935",
+          "title": "Sauce Demo checkout functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate that user can checkout the added product",
+              "fullTitle": "Sauce Demo checkout functionality Validate that user can checkout the added product",
+              "timedOut": null,
+              "duration": 8269,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const validUser = _users.users.standard_user;\nconst checkout = _users.users.checkout_info;\ncy.get('[data-test=\"username\"]').type(validUser.username);\ncy.get('[data-test=\"password\"]').type(validUser.password);\ncy.get('[data-test=\"login-button\"]').click();\n//add the product to the cart\ncy.get('.inventory_item').first().contains('Add to cart').click();\ncy.get('.shopping_cart_badge').should('have.text', '1');\n//Cart paeg validation\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.get('[data-test=\"title\"]').should('have.css', 'color', _color.colors.Black).and('have.text', 'Your Cart');\ncy.get('[data-test=\"continue-shopping\"]').should('be.visible');\ncy.get('[data-test=\"checkout\"]').should('have.css', 'background-color', _color.colors.Green).click();\n//checkout\ncy.get('[data-test=\"firstName\"]').type(checkout.firstname);\ncy.get('[data-test=\"lastName\"]').type(checkout.lastname);\ncy.get('[data-test=\"postalCode\"]').type(checkout.Postalcode);\ncy.get('[data-test=\"continue\"]').click();\n//finish\ncy.get('[data-test=\"finish\"]').click();\n//verify the success message\ncy.get('[data-test=\"pony-express\"]').should('be.visible').and('have.css', 'color', _color.colors.TGreen);\ncy.get('[data-test=\"complete-header\"]').should('be.visible').and('have.css', 'color', _color.colors.Black).and('have.text', 'Thank you for your order!');\ncy.screenshot();",
+              "err": {},
+              "uuid": "ae9dd31a-62d7-4e71-bb3d-bb7383945feb",
+              "parentUUID": "ecc93982-a018-46c4-9b1c-41a513680935",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae9dd31a-62d7-4e71-bb3d-bb7383945feb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8269,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
